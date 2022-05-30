@@ -21,3 +21,21 @@
 .divider {
     width: '80%';
 }
+
+.notes {
+    padding: 10px;
+}
+
+.note {
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.index {
+    padding: 0px 10px;
+    font-weight: bold;
+}
+
+.link {
+    font-size: x-large;
+}

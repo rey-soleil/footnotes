@@ -5,10 +5,12 @@ import { Note } from './Note';
 const exampleNotes = [
     {
         url: 'https://www.goodreads.com/book/show/54870131-the-day-the-world-stops-shopping',
+        title: 'The Day the World Stops Shopping',
         comment: 'An eye-opening read.'
     },
     {
-        url: 'https://open.spotify.com/album/7D2NdGvBHIavgLhmcwhluK',
+        url: 'https://open.spotify.com/album/7D2NdGvBHIavgLhmcwhluK?si=lEHtx4ajSI6ZehEX7NQB_g',
+        title: 'Yeezus',
         comment: 'Reinvented rap AND electronic music at the same time.'
     }
 ];
@@ -16,8 +18,10 @@ const exampleNotes = [
 export function Notes(){
     return (
         <div className='notes'>
-            {exampleNotes.map((noteInfo) => { 
-                return <Note noteInfo={noteInfo} />;
+            {exampleNotes.map((noteInfo, index) => { 
+                return <div>
+                    <Note noteInfo={noteInfo} index={index}/>
+                </div>;
             })}
         </div>
     );
