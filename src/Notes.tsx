@@ -2,7 +2,7 @@ import React from 'react';
 import './footnotes.css';
 import { Note } from './Note';
 
-const exampleNotes = [
+export const exampleFootnote = [
     {
         url: 'https://www.goodreads.com/book/show/54870131-the-day-the-world-stops-shopping',
         title: 'The Day the World Stops Shopping',
@@ -18,7 +18,7 @@ const exampleNotes = [
 export function Notes(){
     return (
         <div className='notes'>
-            {exampleNotes.map((noteInfo, index) => { 
+            {exampleFootnote.map((noteInfo, index) => { 
                 return <div>
                     <Note noteInfo={noteInfo} index={index}/>
                 </div>;
