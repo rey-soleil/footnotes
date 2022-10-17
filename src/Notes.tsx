@@ -12,6 +12,11 @@ export const exampleFootnote = [
         url: 'https://open.spotify.com/album/7D2NdGvBHIavgLhmcwhluK?si=lEHtx4ajSI6ZehEX7NQB_g',
         title: 'Yeezus',
         comment: 'Reinvented rap AND electronic music at the same time.'
+    },
+    {
+        url: 'https://www.theatlantic.com/ideas/archive/2022/10/francis-fukuyama-still-end-history/671761/',
+        title: 'More Proof That This Really Is the End of History',
+        comment: 'Francis Fukuyama!'
     }
 ];
 
