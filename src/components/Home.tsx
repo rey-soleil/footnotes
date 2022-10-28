@@ -1,6 +1,6 @@
 import { Divider } from '@mui/material';
 import React, { useEffect } from 'react';
-import './footnotes.css';
+import '../footnotes.css';
 import { Header } from './Header';
 import { Notes } from './Notes';
 

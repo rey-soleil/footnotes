@@ -1,5 +1,5 @@
 import React from 'react';
-import './footnotes.css';
+import '../footnotes.css';
 import { Note } from './Note';
 
 export const exampleFootnote = [
