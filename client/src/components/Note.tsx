@@ -1,27 +1,20 @@
 import React from 'react';
 import '../footnotes.css';
 
-export type NoteInfo = {
-    url: string,
-    title: string,
-    comment: string,
-}
-
-export function Note(params: {noteInfo: NoteInfo, index: number}){
-    const {noteInfo, index} = params;
-    const {url, title, comment} = noteInfo;
+export function Note(params: {url: string, description: string, index: number}){
+    const {url, description, index} = params;
 
     return (
         <div className='note'>
             <div className='index'>
-                [{index+1}]
+                [{index}]
             </div>
             <div className='info'>
                 <div className='link'>
-                    <a href={url}>{title}</a>
+                    <a href={url}>{url}</a>
                 </div>
                 <div className='comment'>
-                    {comment}
+                    {description}
                 </div>
             </div>
         </div>

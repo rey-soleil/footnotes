@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react';
 import '../footnotes.css';
 import { Note } from './Note';
 
-const EXAMPLE_ID = 50;
-
 export function Notes(){
 
-    const [footnotes, setFootnotes] = useState([]);
+    const [footnotes, setFootnotes] = useState({footnote_description: '', notes: [{url: '', description: '', index: 0}]});
 
     async function loadFootnote(){
-        const response = await fetch(`http://localhost:4000/footnotes/${EXAMPLE_ID}`)
+        const response = await fetch(`http://localhost:4000/footnotes/1`)
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -23,9 +21,10 @@ export function Notes(){
 
     return (
         <div className='notes'>
-            {footnotes && footnotes.map((noteInfo, index) => { 
-                return <div key={index}>
-                    <Note noteInfo={noteInfo} index={index}/>
+            <div className="description">{footnotes.footnote_description}</div>
+            {footnotes.notes.map((note) => { 
+                return <div key={note.index}>
+                    <Note url={note.url} description={note.description} index={note.index}/>
                 </div>;
             })}
         </div>
