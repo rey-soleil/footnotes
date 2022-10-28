@@ -1,2 +1,5 @@
-A web app for sharing articles with your friends
+to start frontend:
+```npm start```
 
+to start backend:
+```node server.js```
