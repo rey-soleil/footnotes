@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../footnotes.css';
 import { Note } from './Note';
 
-export const exampleFootnote = [
+const EXAMPLE_ID = 100;
+
+const exampleFootnote = [
     {
         url: 'https://www.goodreads.com/book/show/54870131-the-day-the-world-stops-shopping',
         title: 'The Day the World Stops Shopping',
@@ -21,8 +23,21 @@ export const exampleFootnote = [
 ];
 
 export function Notes(){
+
+    const [footnotes, setFootnotes] = useState();
+
+    async function loadFootnote(){
+        const response = await fetch(`/footnotes/${EXAMPLE_ID}`);
+        console.log(response);
+    }
+
+    useEffect(() => {
+        loadFootnote();
+    }, []);
+
     return (
         <div className='notes'>
+            {/* TODO: replace exampleFootnote with */}
             {exampleFootnote.map((noteInfo, index) => { 
                 return <div>
                     <Note noteInfo={noteInfo} index={index}/>

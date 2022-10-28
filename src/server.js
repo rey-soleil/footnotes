@@ -4,7 +4,7 @@ const app = express();
 
 app.get("/footnotes/:id", (req, res) => {
     const { id } = req.params;
-    res.send(`the frontend should read ${id}`);
+    res.send(`expecting to see this in chrome dev tools`);
     console.log(`the backend should read ${id}`);
 });
 
