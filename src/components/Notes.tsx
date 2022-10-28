@@ -24,7 +24,7 @@ export function Notes(){
     return (
         <div className='notes'>
             {footnotes && footnotes.map((noteInfo, index) => { 
-                return <div>
+                return <div key={index}>
                     <Note noteInfo={noteInfo} index={index}/>
                 </div>;
             })}
