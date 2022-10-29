@@ -8,6 +8,20 @@ dotenv.config();
 app.use(cors());
 app.use(express.json());
 
+app.post("/footnotes", async (req, res) => {
+    try {
+        const {footnote_description, notes} = req.body;
+        const footnote = await pool.query("INSERT INTO footnote (description) VALUES ($1) RETURNING *", [footnote_description]);
+        const {id, description} = await footnote.rows[0];
+        notes.forEach(async note => {
+            await pool.query("INSERT INTO note (index, url, description, footnote_id) VALUES ($1, $2, $3, $4)", [note.index, note.url, note.description, id]);
+        });
+        res.send({id, description});
+    } catch(err) {
+        console.log(err.message);
+    }
+});
+
 app.get("/footnotes/:id", async (req, res) => {
     try {
         const description = await pool.query("SELECT description as footnote_description FROM footnote WHERE footnote.id=$1", [req.params.id]);
