@@ -5,6 +5,10 @@
     width: 100%;
 }
 
+.home > * {
+    margin: 15px;
+}
+
 .header {
     display: flex;
     justify-content: space-evenly;
@@ -20,10 +24,6 @@
 
 .divider {
     width: '80%';
-}
-
-.notes {
-    padding: 0px 10%;
 }
 
 .note {
@@ -44,4 +44,18 @@
 .description {
     font-style: italic;
     padding: 10px;
+}
+
+.createFootnoteHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.createFootnoteDescription {
+    width: 100%;
+}
+
+.createdFootnotes {
+    display: flex;
+    flex-direction: column;
 }

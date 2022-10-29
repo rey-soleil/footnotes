@@ -2,8 +2,18 @@ import React, { useEffect, useState } from 'react';
 import '../footnotes.css';
 import { Note } from './Note';
 
+export type NoteType = {
+    url: string;
+    description: string;
+}
+
+export type FootnoteType = {
+    footnote_description: string;
+    notes: NoteType[];
+}
+
 export function Notes(){
-    const [footnotes, setFootnotes] = useState({footnote_description: '', notes: [{url: '', description: '', index: 0}]});
+    const [footnotes, setFootnotes] = useState<FootnoteType>();
 
     async function loadFootnote(){
         try {
@@ -22,12 +32,16 @@ export function Notes(){
         loadFootnote();
     }, []);
 
+    if(!footnotes){
+        return <></>;
+    }
+
     return (
         <div className='notes'>
             <div className="description">{footnotes.footnote_description}</div>
-            {footnotes.notes.map((note) => {
-                return <div key={note.index}>
-                    <Note url={note.url} description={note.description} index={note.index}/>
+            {footnotes.notes.map((note, index) => {
+                return <div key={index}>
+                    <Note url={note.url} description={note.description} index={index}/>
                 </div>;
             })}
         </div>
