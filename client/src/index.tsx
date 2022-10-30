@@ -9,6 +9,8 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
+document.title = "footnotes";
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
