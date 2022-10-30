@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import '../footnotes.css';
 import { Note } from './Note';
 
@@ -14,10 +15,11 @@ export type FootnoteType = {
 
 export function Notes(){
     const [footnotes, setFootnotes] = useState<FootnoteType>();
+    const {id} = useParams();
 
     async function loadFootnote(){
         try {
-            const response = await fetch(`http://localhost:4000${window.location.pathname}`)
+            const response = await fetch(`http://localhost:4000/footnotes/${id}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);

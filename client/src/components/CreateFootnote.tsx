@@ -1,5 +1,6 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import isUrl from 'validator/lib/isURL';
 import { Note } from './Note';
 import { NoteType } from './Notes';
@@ -8,6 +9,7 @@ export default function CreateFootnote(){
     const [url, setUrl] = useState('');
     const [description, setDescription] = useState('');
     const [notes, setNotes] = useState<NoteType[]>();
+    const navigate = useNavigate();
 
     const handleChangeurl = (event: React.ChangeEvent<HTMLInputElement>) => {
         setUrl(event.target.value);
@@ -29,6 +31,7 @@ export default function CreateFootnote(){
             .then(response => response.json())
             .then(data => {
                 console.log(data);
+                navigate(`/footnotes/${data.id}`);
             });
         } catch(err){
             console.log(err);
