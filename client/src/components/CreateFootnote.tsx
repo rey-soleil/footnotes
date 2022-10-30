@@ -1,4 +1,4 @@
-import { Button, TextField } from '@mui/material';
+import { Button, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import isUrl from 'validator/lib/isURL';
@@ -39,7 +39,8 @@ export default function CreateFootnote(){
     }
 
     return (
-        <div>
+        <div className='createFootnote'>
+            <Typography variant="h5">Create a footnote</Typography>
             <div className="createFootnoteHeader">
                 {/* TODO: allow user to add a footnote description */}
                 <TextField label="Add a url here" value={url} onChange={handleChangeurl} error={url.length > 0 && !isUrl(url)}/>
@@ -52,7 +53,9 @@ export default function CreateFootnote(){
                         <Note url={note.url} description={note.description} index={index}/>
                     </div>;
                 })}
-                {notes && notes.length > 0 && (<Button variant="contained" onClick={postFootnote}>Create your footnote!</Button>)}
+            </div>
+            <div className='submitFootnote'>
+                <Button disabled={!notes || notes.length == 0} variant="contained" onClick={postFootnote}>Create your footnote!</Button>
             </div>
         </div>
     );

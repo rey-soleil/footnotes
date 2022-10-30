@@ -8,7 +8,7 @@ import { Notes } from './components/Notes';
 
 function App() {
   return (
-    <>
+    <div className='home'>
       <Header />
       <Divider />
       <Routes>
@@ -16,7 +16,7 @@ function App() {
         <Route path="/footnotes/:id" element={<Notes/>}/>
         <Route path="*" element={<Navigate to="/create" replace />}/>
       </Routes>
-    </>
+    </div>
   );
 }
 
