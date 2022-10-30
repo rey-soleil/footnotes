@@ -28,9 +28,9 @@
   },
   "scripts": {
     "start": "cd client && react-scripts --openssl-legacy-provider start",
-    "build": "cd client && react-scripts build",
-    "test": "cd client && react-scripts test",
-    "eject": "cd client && react-scripts eject"
+    "build": "cd client && react-scripts --openssl-legacy-provider build",
+    "test": "cd client && react-scripts --openssl-legacy-provider test",
+    "eject": "cd client && react-scripts --openssl-legacy-provider eject"
   },
   "eslintConfig": {
     "extends": [
