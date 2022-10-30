@@ -23,9 +23,22 @@ export default function CreateFootnote(){
         setDescription('');
     }
 
+    async function postFootnote() {
+        try {
+            const response = await fetch(`http://localhost:4000/footnotes`, {method: 'POST',   headers: {'Content-Type': 'application/json'}, body: JSON.stringify({footnote_description: '', notes: notes})})
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            });
+        } catch(err){
+            console.log(err);
+        }
+    }
+
     return (
         <div>
             <div className="createFootnoteHeader">
+                {/* TODO: allow user to add a footnote description */}
                 <TextField label="Add a url here" value={url} onChange={handleChangeurl} error={url.length > 0 && !isUrl(url)}/>
                 <Button disabled={!isUrl(url)} variant="contained" onClick={handleSubmitNote}>Add a note</Button>
             </div>
@@ -36,7 +49,7 @@ export default function CreateFootnote(){
                         <Note url={note.url} description={note.description} index={index}/>
                     </div>;
                 })}
-                {notes && notes.length > 0 && (<Button variant="contained">Create your footnote!</Button>)}
+                {notes && notes.length > 0 && (<Button variant="contained" onClick={postFootnote}>Create your footnote!</Button>)}
             </div>
         </div>
     );
